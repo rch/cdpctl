@@ -126,7 +126,7 @@ def config() -> None:
     "-p",
     "--platform",
     default="aws",
-    help="The platform (AWS, Azure) for the cloud assets.",
+    help="The platform (AWS) for the cloud assets.",
     type=click.Choice(SUPPORTED_PLATFORMS, case_sensitive=False),
 )
 def skeleton(output_file, platform: str) -> None:

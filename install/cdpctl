@@ -58,7 +58,7 @@ PARENT_DIRECTORY="${DIR%/*}"
 
 docker pull -q "${IMAGE_NAME}:${IMAGE_TAG}"
 
-for thisdir in ".aws" ".ssh" ".cdp" ".azure" ".kube" ".config"
+for thisdir in ".aws" ".ssh" ".cdp" ".kube" ".config"
 do
   mkdir -p "${HOME}"/$thisdir
 done
@@ -146,7 +146,6 @@ exec docker run -ti \
     --mount "type=bind,source=${HOME}/.config,target=/home/runner/.config" \
     --mount "type=bind,source=${HOME}/.ssh,target=/home/runner/.ssh" \
     --mount "type=bind,source=${HOME}/.cdp,target=/home/runner/.cdp" \
-    --mount "type=bind,source=${HOME}/.azure,target=/home/runner/.azure" \
     --mount "type=bind,source=${HOME}/.kube,target=/home/runner/.kube" \
     ${DOCKER_MOUNT_LINE} \
     --network="host" \

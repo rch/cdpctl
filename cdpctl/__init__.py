@@ -42,7 +42,7 @@
 """cdpctl module."""
 
 SUPPORTED_TARGETS = ["infra"]
-SUPPORTED_PLATFORMS = ["aws", "azure"]
+SUPPORTED_PLATFORMS = ["aws"]
 
 
 class Command:
