@@ -53,7 +53,6 @@ from cdpctl import SUPPORTED_PLATFORMS
 from cdpctl.utils import load_config
 from cdpctl.validation import UnrecoverableValidationError, conftest, get_issues
 from cdpctl.validation.aws_utils import validate_aws_config
-from cdpctl.validation.azure_utils import validate_azure_config
 from cdpctl.validation.renderer import get_renderer
 
 
@@ -98,8 +97,9 @@ def run_validation(
     try:
         if infra_type == "aws":
             validate_aws_config(config=config)
-        elif infra_type == "azure":
-            validate_azure_config(config=config)
+        else:
+            print("UNSUPPORTED")
+            exit(1)
     except UnrecoverableValidationError as e:
         click.secho(e, fg="red")
         sys.exit(1)
